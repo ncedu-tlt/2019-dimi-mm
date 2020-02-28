@@ -17,6 +17,6 @@ public interface EventRepository extends CrudRepository<EventEntity, Integer> {
 
     List<EventEntity> findAllByType(EventTypeEntity type);
 
-    List<EventEntity> findById(int id);
+    EventEntity findById(int id);
 
 }

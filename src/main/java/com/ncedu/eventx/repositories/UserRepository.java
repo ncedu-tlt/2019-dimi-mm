@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserRepository extends CrudRepository<UserEntity, Integer> {
     List<UserEntity> findAll();
 
-    List<UserEntity> findByRoleId(UserRoleEntity role);
+    UserEntity findByRoleId(UserRoleEntity role);
 
     List<UserEntity> findById(int id);
 }

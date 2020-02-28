@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface UsersService {
     List<UserDTO> getAllUsers();
+
+    boolean createUser(UserDTO userDTO);
 }
