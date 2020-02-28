@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -17,7 +18,7 @@ import java.util.Set;
 public class EventEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -35,10 +36,10 @@ public class EventEntity implements Serializable {
     private float longtitude;
 
     @OneToMany(mappedBy = "eventId")
-    Set<UserEventEntity> userEvents;
+    Set<UserEventEntity> userEvents = new HashSet<>();
 
     @OneToMany(mappedBy = "parentId", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    Set<EventItemEntity> items;
+    Set<EventItemEntity> items = new HashSet<>();
 
     @Column(nullable = false)
     private String name;

@@ -27,7 +27,7 @@ public class UserEventEntity implements Serializable {
     @JoinColumn(nullable = false)
     private EventEntity eventId;
 
-    @Column(name = "SHOW_ORDER", nullable = false)
+    @Column(nullable = false)
     private int showOrder;
 
 }

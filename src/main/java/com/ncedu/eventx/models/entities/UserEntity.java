@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -17,7 +18,7 @@ import java.util.Set;
 public class UserEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -25,7 +26,7 @@ public class UserEntity implements Serializable {
     private UserRoleEntity roleId;
 
     @OneToMany(mappedBy = "userId")
-    Set<UserEventEntity> userEvents;
+    Set<UserEventEntity> userEvents = new HashSet<>();
 
     @Column(nullable = false)
     private String login;
