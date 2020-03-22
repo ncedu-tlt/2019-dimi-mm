@@ -1,7 +1,6 @@
 package com.ncedu.eventx.repositories;
 
 import com.ncedu.eventx.models.entities.UserEntity;
-import com.ncedu.eventx.models.entities.UserRoleEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

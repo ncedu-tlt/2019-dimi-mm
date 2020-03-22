@@ -84,6 +84,11 @@ public class WebController {
         return "startPage";
     }
 
+    @PostMapping(value = "login")
+    public String login(Model model) {
+        return "redirect:/";
+    }
+
 
 //    // Личный кабинет
 //    @GetMapping(value = "/login")

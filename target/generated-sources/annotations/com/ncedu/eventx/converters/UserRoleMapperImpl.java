@@ -1,7 +1,8 @@
 package com.ncedu.eventx.converters;
 
 import com.ncedu.eventx.models.DTO.UserRoleDTO;
-import com.ncedu.eventx.models.entities.UserRoleEntity;
+import com.ncedu.eventx.models.entities.RoleEntity;
+
 import javax.annotation.Generated;
 
 @Generated(
@@ -12,29 +13,29 @@ import javax.annotation.Generated;
 public class UserRoleMapperImpl implements UserRoleMapper {
 
     @Override
-    public UserRoleEntity toUserRoleEntity(UserRoleDTO userRoleDTO) {
+    public RoleEntity toUserRoleEntity(UserRoleDTO userRoleDTO) {
         if ( userRoleDTO == null ) {
             return null;
         }
 
-        UserRoleEntity userRoleEntity = new UserRoleEntity();
+        RoleEntity roleEntity = new RoleEntity();
 
-        userRoleEntity.setId( userRoleDTO.getId() );
-        userRoleEntity.setName( userRoleDTO.getName() );
+        roleEntity.setId( userRoleDTO.getId() );
+        roleEntity.setName( userRoleDTO.getName() );
 
-        return userRoleEntity;
+        return roleEntity;
     }
 
     @Override
-    public UserRoleDTO toUserRoleDTO(UserRoleEntity userRoleEntity) {
-        if ( userRoleEntity == null ) {
+    public UserRoleDTO toUserRoleDTO(RoleEntity roleEntity) {
+        if ( roleEntity == null ) {
             return null;
         }
 
         UserRoleDTO userRoleDTO = new UserRoleDTO();
 
-        userRoleDTO.setId( userRoleEntity.getId() );
-        userRoleDTO.setName( userRoleEntity.getName() );
+        userRoleDTO.setId( roleEntity.getId() );
+        userRoleDTO.setName( roleEntity.getName() );
 
         return userRoleDTO;
     }

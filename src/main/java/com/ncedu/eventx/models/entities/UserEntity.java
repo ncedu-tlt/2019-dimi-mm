@@ -23,7 +23,7 @@ public class UserEntity implements Serializable, UserDetails {
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.REFRESH, CascadeType.MERGE})
-    private List<UserRoleEntity> roles;
+    private List<RoleEntity> roles;
 
     @OneToMany(mappedBy = "user")
     List<UserEventEntity> userEvents = new ArrayList<>();
@@ -60,11 +60,11 @@ public class UserEntity implements Serializable, UserDetails {
         this.id = id;
     }
 
-    public List<UserRoleEntity> getRoles() {
+    public List<RoleEntity> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<UserRoleEntity> roles) {
+    public void setRoles(List<RoleEntity> roles) {
         this.roles = roles;
     }
 

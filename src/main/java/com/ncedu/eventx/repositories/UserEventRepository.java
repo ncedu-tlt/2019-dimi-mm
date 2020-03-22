@@ -13,7 +13,7 @@ public interface UserEventRepository extends CrudRepository<UserEventEntity, Use
 
     List<UserEventEntity> findAllByEvent(EventEntity eventEntity);
 
-    List<UserEventEntity> findAllByRole(UserRoleEntity userRoleEntity);
+    List<UserEventEntity> findAllByRole(RoleEntity roleEntity);
 
     List<UserEventEntity> findAllByUser(UserEntity userEntity);
 
@@ -21,8 +21,8 @@ public interface UserEventRepository extends CrudRepository<UserEventEntity, Use
 
     UserEventEntity findByEventAndUser(EventEntity eventEntity, UserEntity userEntity);
 
-    UserEventEntity findByEventAndRole(EventEntity eventEntity, UserRoleEntity roleEntity);
+    UserEventEntity findByEventAndRole(EventEntity eventEntity, RoleEntity roleEntity);
 
-    boolean deleteByEventAndUserAndRole(EventEntity entity, UserEntity userEntity, UserRoleEntity userRoleEntity);
+    boolean deleteByEventAndUserAndRole(EventEntity entity, UserEntity userEntity, RoleEntity roleEntity);
 
 }

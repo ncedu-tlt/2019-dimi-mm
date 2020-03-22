@@ -2,8 +2,8 @@ package com.ncedu.eventx.services.impl;
 
 import com.ncedu.eventx.converters.UsersMapper;
 import com.ncedu.eventx.models.DTO.UserDTO;
+import com.ncedu.eventx.models.entities.RoleEntity;
 import com.ncedu.eventx.models.entities.UserEntity;
-import com.ncedu.eventx.models.entities.UserRoleEntity;
 import com.ncedu.eventx.repositories.RolesRepository;
 import com.ncedu.eventx.repositories.UserRepository;
 import com.ncedu.eventx.services.UsersService;
@@ -37,7 +37,7 @@ public class UsersServiceImpl implements UsersService, UserDetailsService {
     @Override
     public boolean createRegisteredUser(UserDTO userDTO) {
         UserEntity userEntity = new UserEntity();
-        List<UserRoleEntity> roles = null;
+        List<RoleEntity> roles = null;
         //List<UserRoleEntity> roles = rolesRepository.findByName(userDTO.getUsername());
 
         userEntity.setId(userDTO.getId());

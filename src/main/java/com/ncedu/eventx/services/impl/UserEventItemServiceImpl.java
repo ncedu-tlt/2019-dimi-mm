@@ -46,10 +46,10 @@ public class UserEventItemServiceImpl implements UserEventItemService {
     public boolean createEventItem(EventItemDTO eventItemDTO, UserDTO user) {
         UserEntity userEntity = userRepository.findById(user.getId());
         EventItemEntity eventItemEntity = eventItemService.createEventItem(eventItemDTO);
-        UserRoleEntity userRoleEntity = rolesRepository.findByName(SPEAKER.getDescription());
+        RoleEntity roleEntity = rolesRepository.findByName(SPEAKER.getDescription());
 
-        UserEventItemKey key = new UserEventItemKey(eventItemEntity.getId(),userEntity.getId(),userRoleEntity.getId());
-        UserEventItemEntity entity = new UserEventItemEntity(key,userEntity,eventItemEntity,userRoleEntity,1);
+        UserEventItemKey key = new UserEventItemKey(eventItemEntity.getId(),userEntity.getId(), roleEntity.getId());
+        UserEventItemEntity entity = new UserEventItemEntity(key,userEntity,eventItemEntity, roleEntity,1);
 
         userEventItemRepository.save(entity);
 
@@ -60,10 +60,10 @@ public class UserEventItemServiceImpl implements UserEventItemService {
     public boolean addToFeatured(EventItemDTO itemDTO, UserDTO user) {
         EventItemEntity itemEntity = eventItemRepository.findById(itemDTO.getId());
         UserEntity userEntity = userRepository.findById(user.getId());
-        UserRoleEntity userRoleEntity = rolesRepository.findByName(VISITOR.getDescription());
+        RoleEntity roleEntity = rolesRepository.findByName(VISITOR.getDescription());
 
-        UserEventItemKey key = new UserEventItemKey(itemEntity.getId(),userEntity.getId(),userRoleEntity.getId());
-        UserEventItemEntity entity = new UserEventItemEntity(key,userEntity,itemEntity,userRoleEntity,1);
+        UserEventItemKey key = new UserEventItemKey(itemEntity.getId(),userEntity.getId(), roleEntity.getId());
+        UserEventItemEntity entity = new UserEventItemEntity(key,userEntity,itemEntity, roleEntity,1);
 
         userEventItemRepository.save(entity);
 
