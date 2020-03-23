@@ -14,7 +14,7 @@ public class UserDTO {
 
     private int id;
 
-    private List<UserRoleDTO> roles;
+    private List<RoleDTO> roles;
 
     private String email;
 
@@ -41,11 +41,11 @@ public class UserDTO {
         this.id = id;
     }
 
-    public List<UserRoleDTO> getRoles() {
+    public List<RoleDTO> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<UserRoleDTO> roles) {
+    public void setRoles(List<RoleDTO> roles) {
         this.roles = roles;
     }
 

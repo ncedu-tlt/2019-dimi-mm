@@ -1,17 +1,16 @@
 package com.ncedu.eventx.converters;
 
+import com.ncedu.eventx.models.DTO.RoleDTO;
 import com.ncedu.eventx.models.DTO.UserDTO;
-import com.ncedu.eventx.models.DTO.UserRoleDTO;
 import com.ncedu.eventx.models.entities.RoleEntity;
 import com.ncedu.eventx.models.entities.UserEntity;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-03-22T17:24:36+0400",
+    date = "2020-03-22T22:01:18+0400",
     comments = "version: 1.3.0.Beta2, compiler: javac, environment: Java 13 (Oracle Corporation)"
 )
 public class UsersMapperImpl implements UsersMapper {
@@ -25,7 +24,7 @@ public class UsersMapperImpl implements UsersMapper {
         UserDTO userDTO = new UserDTO();
 
         userDTO.setId( userEntity.getId() );
-        userDTO.setRoles( userRoleEntityListToUserRoleDTOList( userEntity.getRoles() ) );
+        userDTO.setRoles( roleEntityListToRoleDTOList( userEntity.getRoles() ) );
         userDTO.setEmail( userEntity.getEmail() );
         userDTO.setPassword( userEntity.getPassword() );
         userDTO.setUsername( userEntity.getUsername() );
@@ -45,7 +44,7 @@ public class UsersMapperImpl implements UsersMapper {
         UserEntity userEntity = new UserEntity();
 
         userEntity.setId( userDTO.getId() );
-        userEntity.setRoles( userRoleDTOListToUserRoleEntityList( userDTO.getRoles() ) );
+        userEntity.setRoles( roleDTOListToRoleEntityList( userDTO.getRoles() ) );
         userEntity.setPassword( userDTO.getPassword() );
         userEntity.setUsername( userDTO.getUsername() );
         userEntity.setOrganizationName( userDTO.getOrganizationName() );
@@ -79,9 +78,9 @@ public class UsersMapperImpl implements UsersMapper {
         UserDTO userDTO = new UserDTO();
 
         userDTO.setId( userById.getId() );
-        List<UserRoleDTO> list = userById.getRoles();
+        List<RoleDTO> list = userById.getRoles();
         if ( list != null ) {
-            userDTO.setRoles( new ArrayList<UserRoleDTO>( list ) );
+            userDTO.setRoles( new ArrayList<RoleDTO>( list ) );
         }
         userDTO.setEmail( userById.getEmail() );
         userDTO.setPassword( userById.getPassword() );
@@ -94,53 +93,53 @@ public class UsersMapperImpl implements UsersMapper {
         return userDTO;
     }
 
-    protected UserRoleDTO userRoleEntityToUserRoleDTO(RoleEntity roleEntity) {
+    protected RoleDTO roleEntityToRoleDTO(RoleEntity roleEntity) {
         if ( roleEntity == null ) {
             return null;
         }
 
-        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        RoleDTO roleDTO = new RoleDTO();
 
-        userRoleDTO.setId( roleEntity.getId() );
-        userRoleDTO.setName( roleEntity.getName() );
+        roleDTO.setId( roleEntity.getId() );
+        roleDTO.setName( roleEntity.getName() );
 
-        return userRoleDTO;
+        return roleDTO;
     }
 
-    protected List<UserRoleDTO> userRoleEntityListToUserRoleDTOList(List<RoleEntity> list) {
+    protected List<RoleDTO> roleEntityListToRoleDTOList(List<RoleEntity> list) {
         if ( list == null ) {
             return null;
         }
 
-        List<UserRoleDTO> list1 = new ArrayList<UserRoleDTO>( list.size() );
+        List<RoleDTO> list1 = new ArrayList<RoleDTO>( list.size() );
         for ( RoleEntity roleEntity : list ) {
-            list1.add( userRoleEntityToUserRoleDTO(roleEntity) );
+            list1.add( roleEntityToRoleDTO( roleEntity ) );
         }
 
         return list1;
     }
 
-    protected RoleEntity userRoleDTOToUserRoleEntity(UserRoleDTO userRoleDTO) {
-        if ( userRoleDTO == null ) {
+    protected RoleEntity roleDTOToRoleEntity(RoleDTO roleDTO) {
+        if ( roleDTO == null ) {
             return null;
         }
 
         RoleEntity roleEntity = new RoleEntity();
 
-        roleEntity.setId( userRoleDTO.getId() );
-        roleEntity.setName( userRoleDTO.getName() );
+        roleEntity.setId( roleDTO.getId() );
+        roleEntity.setName( roleDTO.getName() );
 
         return roleEntity;
     }
 
-    protected List<RoleEntity> userRoleDTOListToUserRoleEntityList(List<UserRoleDTO> list) {
+    protected List<RoleEntity> roleDTOListToRoleEntityList(List<RoleDTO> list) {
         if ( list == null ) {
             return null;
         }
 
         List<RoleEntity> list1 = new ArrayList<RoleEntity>( list.size() );
-        for ( UserRoleDTO userRoleDTO : list ) {
-            list1.add( userRoleDTOToUserRoleEntity( userRoleDTO ) );
+        for ( RoleDTO roleDTO : list ) {
+            list1.add( roleDTOToRoleEntity( roleDTO ) );
         }
 
         return list1;

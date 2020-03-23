@@ -3,47 +3,35 @@ package com.ncedu.eventx.controllers;
 import com.ncedu.eventx.models.DTO.UserDTO;
 import com.ncedu.eventx.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@Controller
+@RestController
 public class RegistrationController {
 
-    @Autowired
+    /*@Autowired
     private UsersService userService;
 
-    @GetMapping("/registration")
+    @GetMapping(value = "/registration",
+                produces = { MediaType.APPLICATION_JSON_VALUE
+                })
+    @ResponseBody
     public String registration(Model model) {
-        model.addAttribute("userForm", new UserDTO());
-
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String addUser(@ModelAttribute("userForm") @Valid UserDTO userForm, BindingResult bindingResult, Model model) {
+    public String addUser(@ModelAttribute("userForm") @Valid UserDTO userForm) {
 
-        if (bindingResult.hasErrors()) {
-            return "registration";
-        }
-
-        if (!userForm.getPassword().equals(userForm.getPasswordConfirm())){
-            model.addAttribute("passwordError", "Пароли не совпадают");
-            return "registration";
-        }
-
-        if (!userService.createRegisteredUser(userForm)){
-            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
-            return "registration";
-        }
+        userService.createRegisteredUser(userForm);
 
         return "redirect:/";
-    }
+    } */
 
     /*final UsersService usersService;
 

@@ -3,7 +3,7 @@ package com.ncedu.eventx.services.impl;
 import com.ncedu.eventx.models.DTO.EventDTO;
 import com.ncedu.eventx.models.DTO.EventForCreateDTO;
 import com.ncedu.eventx.models.DTO.UserDTO;
-import com.ncedu.eventx.models.DTO.UserRoleDTO;
+import com.ncedu.eventx.models.DTO.RoleDTO;
 import com.ncedu.eventx.models.entities.*;
 import com.ncedu.eventx.repositories.EventRepository;
 import com.ncedu.eventx.repositories.RolesRepository;
@@ -51,7 +51,7 @@ public class UserEventServiceImpl implements UserEventService {
     }
 
     @Override
-    public List<UserEventEntity> getAllByRole(UserRoleDTO roleDTO) {
+    public List<UserEventEntity> getAllByRole(RoleDTO roleDTO) {
         RoleEntity entity = rolesRepository.findByName(roleDTO.getName());
         return userEventRepository.findAllByRole(entity);
     }

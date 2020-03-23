@@ -42,7 +42,6 @@ public class WebController {
     @PostMapping("/add-event")
     @ResponseBody
     public EventForCreateDTO createEvent(@RequestBody EventForCreateDTO event){
-
         userEventService.createEvent(event);
         return event;
     }
@@ -84,10 +83,27 @@ public class WebController {
         return "startPage";
     }
 
-    @PostMapping(value = "login")
-    public String login(Model model) {
+    @PostMapping(value = "/login")
+    public String loginPost(Model model) {
         return "redirect:/";
     }
+
+    @GetMapping(value = "/login")
+    public String loginGet(Model model) {
+        return "login";
+    }
+
+    @GetMapping(value = "/registration")
+    public String registrationGet() {
+        return "registration";
+    }
+
+    @PostMapping(value = "/registration")
+    public String registrationPost(@RequestBody UserDTO user) {
+        usersService.createRegisteredUser(user);
+        return "redirect:/";
+    }
+
 
 
 //    // Личный кабинет

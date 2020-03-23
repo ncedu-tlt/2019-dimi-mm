@@ -3,7 +3,6 @@
 <head>
     <title>Главная</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
@@ -111,15 +110,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <sec:authorize access="isAuthenticated()">
-                        <h2> Hello ${pageContext.request.userPrincipal.name}</h2>
-                    </sec:authorize>
-                    <h4><a href="/news">Новости (только пользователь)</a></h4>
-                    <h4><a href="/admin">Пользователи (только админ)</a></h4>
+                    <h2> Hello </h2>
+                    <h4><a href="/map">/map</a></h4>
+                    <h4><a href="/api">/api</a></h4>
+                    <h4><a href="/login">/login</a></h4>
+                    <h4><a href="/registration">/registration</a></h4>
                 </div>
             </div>
         </div>
     </div>
+</main>
 
     <!-- Подключаем jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

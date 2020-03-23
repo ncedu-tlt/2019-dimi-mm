@@ -32,4 +32,37 @@ public class RoleEntity implements Serializable {
     @OneToMany(mappedBy = "role")
     private List<UserEventEntity> userEventList = new ArrayList<>();
 
+    // Удалить
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<UserEntity> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<UserEntity> users) {
+        this.users = users;
+    }
+
+    public List<UserEventEntity> getUserEventList() {
+        return userEventList;
+    }
+
+    public void setUserEventList(List<UserEventEntity> userEventList) {
+        this.userEventList = userEventList;
+    }
 }

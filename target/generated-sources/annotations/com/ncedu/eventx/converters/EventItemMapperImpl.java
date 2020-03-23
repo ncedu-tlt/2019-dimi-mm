@@ -8,7 +8,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-03-22T17:24:36+0400",
+    date = "2020-03-22T22:01:16+0400",
     comments = "version: 1.3.0.Beta2, compiler: javac, environment: Java 13 (Oracle Corporation)"
 )
 public class EventItemMapperImpl implements EventItemMapper {
