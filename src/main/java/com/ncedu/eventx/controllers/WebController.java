@@ -84,12 +84,12 @@ public class WebController {
     }
 
     @PostMapping(value = "/login")
-    public String loginPost(Model model) {
+    public String authorize(Model model) {
         return "redirect:/";
     }
 
     @GetMapping(value = "/login")
-    public String loginGet(Model model) {
+    public String login(Model model) {
         return "login";
     }
 
